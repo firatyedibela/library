@@ -5,11 +5,32 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Library</title>
   <script src="./script.js" defer></script>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="./styles/main.css">
+  <link rel="stylesheet" href="./styles/sidebar.css">
 </head>
 <body>
   <div id="main-wrapper">
-    <div id="sidebar"></div>
+    <div id="sidebar">
+      <form action="">
+        <div class="input-wrapper">
+          <label for="name">Book Name</label>
+          <input id="name" name="name" type="text">
+        </div>
+        <div class="input-wrapper">
+          <label for="author">Author</label>
+          <input id="author" name="author" type="text">
+        </div>
+        <div class="input-wrapper">
+          <label for="pages">Pages</label>
+          <input id="pages" name="pages" type="text">
+        </div>
+        <div class="checkbox-wrapper">
+          <input id="read" name="read" type="checkbox">
+          <label for="read">I have read this book</label>
+        </div>
+        <button>Add</button>
+      </form>
+    </div>
     <div id="content"></div>
   </div>
 </body>
