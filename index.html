@@ -7,6 +7,7 @@
   <script src="./script.js" defer></script>
   <link rel="stylesheet" href="./styles/main.css">
   <link rel="stylesheet" href="./styles/sidebar.css">
+  <link rel="stylesheet" href="./styles/content.css">
 </head>
 <body>
   <div id="main-wrapper">
@@ -28,10 +29,23 @@
           <input id="read" name="read" type="checkbox">
           <label for="read">I have read this book</label>
         </div>
-        <button>Add</button>
+        <button class="add-book-btn">Add</button>
       </form>
     </div>
-    <div id="content"></div>
+    <div id="content">
+      <div id="content-header"></div>
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Author</th>
+            <th>Pages</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody id="table-body"></tbody>
+      </table>
+    </div>
   </div>
 </body>
 </html>
