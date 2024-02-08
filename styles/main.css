@@ -1,12 +1,11 @@
 body {
   margin: 0;
   padding: 0;
-  background-color: #f97316;
-
+  background-color: #d4d4d4;;
 }
 
 #main-wrapper {
-  display: grid;
-  grid-template-columns: 1fr 3fr;
+  display: flex;
+  min-height: 100vh;
 }
 

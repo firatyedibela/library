@@ -70,6 +70,9 @@ function renderLibrary() {
       cell.textContent = book[cell.id];
     });
     
+    // Add remove image
+    cells[cells.length - 1].innerHTML = `<img class="trash-bin-svg" src="./svg/reshot-icon-garbage-F6JTU7P2X4.svg" alt="">`;
+
     // Update status cell's content to display Read or Not Read instead of true/false
     cells[cells.length - 2].textContent = book.status ? 'Read' : 'Not Read';
   });

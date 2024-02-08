@@ -4,16 +4,18 @@
 }
 
 #content {
+  flex: 5;
   display: grid;
 }
 
 table {
-  border-collapse: collapse;
+  margin: 20px;
 }
 
 table tr {
   display: grid;
   grid-template-columns: 2fr 2fr 1fr 1fr 1fr;
+  height: 50px;
 }
 
 table > thead > tr > th {
@@ -22,22 +24,28 @@ table > thead > tr > th {
   font-weight: bold;
   color: white;
   border-right: 2px solid gray;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 table > thead > tr > th:last-child {
   border: none;
-  padding: 5px;
 }
 
 table > tbody > tr > td {
   background-color: #d4d4d4;
-  border-right: 2px solid gray;
   text-align: center;
   height: 50px;
   font-size: 1.3rem;
+  border-bottom: 2px solid gray;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-table > tbody > tr > td:last-child {
-  border: none;
+.trash-bin-svg {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
 }
-

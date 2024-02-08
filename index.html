@@ -14,9 +14,11 @@
   <div id="main-wrapper">
     <div id="sidebar">
       <div id="sidebar-header">
+        <img class="sidebar-library-svg" src="./svg/reshot-icon-library-HZY723RUMP.svg" alt="">
         <p>Library</p>
       </div>
-      <div class="dashboard"></div>
+      <div class="dashboard">
+      </div>
       <form id="book-form" action="">
         <div class="input-wrapper">
           <label for="name">Title</label>
@@ -24,7 +26,7 @@
         </div>
         <div class="input-wrapper">
           <label for="author">Author</label required>
-          <input id="author" name="author" type="text">
+          <input id="author" name="author" type="text" required>
         </div>
         <div class="input-wrapper">
           <label for="pages">Pages</label>
@@ -36,11 +38,15 @@
         </div>
         <button class="add-book-btn">Add</button>
       </form>
+      <footer>
+        <p id="created-by">Created by @firatyedibela</p>
+        <img src="" alt="">
+      </footer>
     </div>
     <div id="content">
       <table>
         <thead>
-          <tr>
+          <tr class="table-header">
             <th>Name</th>
             <th>Author</th>
             <th>Pages</th>
@@ -51,10 +57,6 @@
         <tbody id="table-body"></tbody>
       </table>
     </div>
-    <div id="right-ui">
-
-    </div>
   </div>
 </body>
 </html>
-
