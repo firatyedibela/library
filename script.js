@@ -74,3 +74,8 @@ function renderLibrary() {
     cells[cells.length - 1].textContent = book.status ? 'Read' : 'Not Read';
   });
 }
+
+function emptyForm() {
+  document.querySelector('#book-form').reset();
+  document.querySelector('#book-form #name').focus();
+}
