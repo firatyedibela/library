@@ -42,7 +42,6 @@ function addBookToLibrary() {
   // Push new object to myLibrary array
   const book = new Book(name, author, pages, status);
   myLibrary.push(book);
-  console.table(myLibrary);
 }
 
 function renderLibrary() {
@@ -62,6 +61,7 @@ function renderLibrary() {
         <td id="author"></td>
         <td id="pages"></td>
         <td id="status"></td>
+        <td id="remove"></td>
       </tr>
     `;
     // Iterate through all the cells that's just created and give them the current book object's data
@@ -71,7 +71,7 @@ function renderLibrary() {
     });
     
     // Update status cell's content to display Read or Not Read instead of true/false
-    cells[cells.length - 1].textContent = book.status ? 'Read' : 'Not Read';
+    cells[cells.length - 2].textContent = book.status ? 'Read' : 'Not Read';
   });
 }
 

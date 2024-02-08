@@ -8,22 +8,27 @@
   <link rel="stylesheet" href="./styles/main.css">
   <link rel="stylesheet" href="./styles/sidebar.css">
   <link rel="stylesheet" href="./styles/content.css">
+  <link rel="stylesheet" href="./styles/header.css">
 </head>
 <body>
   <div id="main-wrapper">
     <div id="sidebar">
+      <div id="sidebar-header">
+        <p>Library</p>
+      </div>
+      <div class="dashboard"></div>
       <form id="book-form" action="">
         <div class="input-wrapper">
-          <label for="name">Book Name</label>
-          <input id="name" name="name" type="text">
+          <label for="name">Title</label>
+          <input id="name" name="name" type="text" required>
         </div>
         <div class="input-wrapper">
-          <label for="author">Author</label>
+          <label for="author">Author</label required>
           <input id="author" name="author" type="text">
         </div>
         <div class="input-wrapper">
           <label for="pages">Pages</label>
-          <input id="pages" name="pages" type="text">
+          <input id="pages" name="pages" type="text" required>
         </div>
         <div class="checkbox-wrapper">
           <input id="read" name="read" type="checkbox">
@@ -33,7 +38,6 @@
       </form>
     </div>
     <div id="content">
-      <div id="content-header"></div>
       <table>
         <thead>
           <tr>
@@ -41,11 +45,16 @@
             <th>Author</th>
             <th>Pages</th>
             <th>Status</th>
+            <th>Removal</th>
           </tr>
         </thead>
         <tbody id="table-body"></tbody>
       </table>
     </div>
+    <div id="right-ui">
+
+    </div>
   </div>
 </body>
 </html>
+

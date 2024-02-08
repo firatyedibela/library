@@ -1,0 +1,43 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+#content {
+  display: grid;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+table tr {
+  display: grid;
+  grid-template-columns: 2fr 2fr 1fr 1fr 1fr;
+}
+
+table > thead > tr > th {
+  font-size: 1.8rem;
+  background-color: #27272a;
+  font-weight: bold;
+  color: white;
+  border-right: 2px solid gray;
+}
+
+table > thead > tr > th:last-child {
+  border: none;
+  padding: 5px;
+}
+
+table > tbody > tr > td {
+  background-color: #d4d4d4;
+  border-right: 2px solid gray;
+  text-align: center;
+  height: 50px;
+  font-size: 1.3rem;
+}
+
+table > tbody > tr > td:last-child {
+  border: none;
+}
+
