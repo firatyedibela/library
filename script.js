@@ -19,6 +19,10 @@ function Book(name, pages, author, status) {
   this.status = status;
 }
 
+  Book.prototype.toggleRead = function() {
+    this.status = this.status ? false : true;
+  }
+
 document.querySelector('.add-book-btn').addEventListener('click', (e) => {
   // Prevent the button from submitting the form and reloading the page
   e.preventDefault()
@@ -78,17 +82,17 @@ function renderLibrary() {
     >`;
 
     // Update status cell's content to display checked or unchecked logos instead of true/false
-    if (book.status) {
+    if (book.status) {
       cells[cells.length - 2].innerHTML = `<img 
         class="checked-svg status-button"
         src="./svg/check.svg"
-        data-checked="true"
+        data-index="${index}"
       >`;
     } else {
       cells[cells.length - 2].innerHTML = `<img 
         class="unchecked-svg status-button"
         src="./svg/uncheck.svg"
-        data-checked="false"
+        data-index="${index}"
       >`;
     }
   });
@@ -107,18 +111,9 @@ function renderLibrary() {
   const statusButtons = document.querySelectorAll('.status-button');
   statusButtons.forEach((button) => {
     button.addEventListener('click', event => {
-      if (button.dataset.checked === "true") {
-        button.src = "./svg/uncheck.svg";
-        button.classList.remove('checked-svg');
-        button.classList.add('unchecked-svg');
-        button.dataset.checked = "false"
-      }
-      else if (button.dataset.checked === "false") {
-        button.src = "./svg/check.svg"
-        button.classList.remove('unchecked-svg');
-        button.classList.add('checked-svg');
-        button.dataset.checked = "true"
-      }
+      const bookIndex = button.getAttribute('data-index');
+      myLibrary[bookIndex].toggleRead();
+      renderLibrary();
     });
   });
 }
