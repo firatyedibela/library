@@ -74,13 +74,25 @@ function renderLibrary() {
     cells[cells.length - 1].innerHTML = `<img 
       class="trash-bin-svg"
       src="./svg/reshot-icon-garbage-F6JTU7P2X4.svg"
-      data-index="${index}";
+      data-index="${index}"
     >`;
 
-    // Update status cell's content to display Read or Not Read instead of true/false
-    cells[cells.length - 2].textContent = book.status ? 'Read' : 'Not Read';
+    // Update status cell's content to display checked or unchecked logos instead of true/false
+    if (book.status) {
+      cells[cells.length - 2].innerHTML = `<img 
+        class="checked-svg status-button"
+        src="./svg/check.svg"
+        data-checked="true"
+      >`;
+    } else {
+      cells[cells.length - 2].innerHTML = `<img 
+        class="unchecked-svg status-button"
+        src="./svg/uncheck.svg"
+        data-checked="false"
+      >`;
+    }
   });
-  
+
   // Make trash buttons interactive
   const removeButtons = document.querySelectorAll('.trash-bin-svg');
   removeButtons.forEach((button) => {
@@ -91,6 +103,24 @@ function renderLibrary() {
     });
   });
 
+  // Make status buttons interactive
+  const statusButtons = document.querySelectorAll('.status-button');
+  statusButtons.forEach((button) => {
+    button.addEventListener('click', event => {
+      if (button.dataset.checked === "true") {
+        button.src = "./svg/uncheck.svg";
+        button.classList.remove('checked-svg');
+        button.classList.add('unchecked-svg');
+        button.dataset.checked = "false"
+      }
+      else if (button.dataset.checked === "false") {
+        button.src = "./svg/check.svg"
+        button.classList.remove('unchecked-svg');
+        button.classList.add('checked-svg');
+        button.dataset.checked = "true"
+      }
+    });
+  });
 }
 
 function emptyForm() {
