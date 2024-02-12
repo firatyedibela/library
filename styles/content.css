@@ -34,11 +34,10 @@ table > thead > tr > th:last-child {
 }
 
 table > tbody > tr > td {
-  background-color: #d4d4d4;
+  background-color: #c4c4c4;
   text-align: center;
-  height: 50px;
+  height: 70px;
   font-size: 1.3rem;
-  border-bottom: 2px solid gray;
   display: flex;
   justify-content: center;
   align-items: center;
