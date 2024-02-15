@@ -85,13 +85,13 @@ function renderLibrary() {
     if (book.status) {
       cells[cells.length - 2].innerHTML = `<img 
         class="checked-svg status-button"
-        src="./svg/check.svg"
+        src="./svg/check-bold.svg"
         data-index="${index}"
       >`;
     } else {
       cells[cells.length - 2].innerHTML = `<img 
         class="unchecked-svg status-button"
-        src="./svg/uncheck.svg"
+        src="./svg/close-thick.svg"
         data-index="${index}"
       >`;
     }
@@ -112,6 +112,7 @@ function renderLibrary() {
   statusButtons.forEach((button) => {
     button.addEventListener('click', event => {
       const bookIndex = button.getAttribute('data-index');
+      console.log(myLibrary[bookIndex]);
       myLibrary[bookIndex].toggleRead();
       renderLibrary();
     });

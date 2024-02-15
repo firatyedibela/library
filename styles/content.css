@@ -4,12 +4,25 @@
 }
 
 #content {
+  display: flex;
+  flex-direction: column;
   flex: 5;
-  display: grid;
 }
 
 table {
-  margin: 20px;
+  margin: 0;
+  border-spacing: 0;
+  flex: 1;
+}
+
+thead {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+}
+
+table > thead tr:first-child {
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.93) 11.2%, rgb(37, 37, 37) 78.9%);
 }
 
 table tr {
@@ -20,13 +33,15 @@ table tr {
 
 table > thead > tr > th {
   font-size: 2.5rem;
-  background-color: #27272a;
-  font-weight: bold;
+  
   color: rgb(213, 213, 213);
   border-right: 2px solid gray;
   display: flex;
   align-items: center;
   justify-content: center;
+  font-family: Fredoka;
+  font-weight: 500;
+  letter-spacing: 2px;
 }
 
 table > thead > tr > th:last-child {
@@ -34,13 +49,14 @@ table > thead > tr > th:last-child {
 }
 
 table > tbody > tr > td {
-  background-color: #c4c4c4;
+  /* background-color: #aaaaaa; */
+  font-family: Fredoka;
   text-align: center;
-  font-size: 1.4rem;
+  font-size: 1.6rem;
+  font-weight: medium;
   display: flex;
   justify-content: center;
   align-items: center;
-  
 }
 
 .trash-bin-svg {
@@ -57,9 +73,36 @@ table > tbody > tr > td {
 }
 
 .checked-svg {
-  filter: invert(20%) sepia(87%) saturate(4756%) hue-rotate(100deg) brightness(92%) contrast(95%);
+  filter: invert(14%) sepia(31%) saturate(4433%) hue-rotate(99deg) brightness(100%) contrast(106%);
 }
 
 .unchecked-svg {
-  filter: invert(19%) sepia(18%) saturate(5876%) hue-rotate(337deg) brightness(93%) contrast(120%);
+  filter: invert(13%) sepia(22%) saturate(6682%) hue-rotate(349deg) brightness(97%) contrast(102%);
+}
+
+#dashboard {
+  position: sticky;
+  bottom: 0;
+  padding-right: 20px;
+  padding-left: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 70px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: rgb(126, 11, 11);
+  background-color: #FBAB7E;
+  background-image: linear-gradient(62deg, #FBAB7E 0%, #F7CE68 100%);
+}
+
+#dashboard > div {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+#dashboard img {
+  width: 40px;
+  height: 40px;
 }

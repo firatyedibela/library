@@ -1,8 +1,8 @@
 body {
   margin: 0;
   padding: 0;
-  background-color: #d4d4d4;;
-  background-color: #ad6a34;
+  background-image: linear-gradient(135deg, #4e1d04 0%, #d6833d 100%);
+  background-image: linear-gradient(135deg, #8d370d 0%, #d6833d 100%);
 }
 
 #main-wrapper {
