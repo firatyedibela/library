@@ -1,18 +1,23 @@
-const myLibrary = [{
-  name: 'Dummy Book1',
-  pages: 250,
-  author: 'Dummy Author1',
-  status: false,
-}, {
-  name: 'Dummy Book2',
-  pages: 350,
-  author: 'Dummy Author2',
-  status: true,
-}];
+import { renderDashboard } from './dashboard.js';
+
+
+// export const myLibrary = [{
+//   name: 'Dummy Book1',
+//   author: 'Dummy Author1',
+//   pages: 250, 
+//   status: false,
+// }, {
+//   name: 'Dummy Book2',
+//   author: 'Dummy Author2',
+//   pages: 350,
+//   status: true,
+// }];
+
+export const myLibrary = [];
 
 renderLibrary();
 
-function Book(name, pages, author, status) {
+function Book(name, author, pages, status) {
   this.name = name;
   this.pages = pages;
   this.author = author;
@@ -117,6 +122,9 @@ function renderLibrary() {
       renderLibrary();
     });
   });
+
+  // Render dashboard
+  renderDashboard();
 }
 
 function emptyForm() {
