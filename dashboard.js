@@ -49,20 +49,3 @@ function getTotalAuthors() {
   console.log(uniqueAuthors);
   return uniqueAuthors.length;
 }
-
-
-// const dashboard = {
-//   getTotalBooks: function() {
-//     return myLibrary.length;
-//   },
-//   getBooksRead: function() {
-//     return myLibrary.filter(book => book.status).length;
-//   },
-//   getBooksUnread: function() {
-//     return this.getTotalBooks() - this.getBooksRead();
-//   },
-//   getTotalAuthors: function() {
-//     let authors = 
-//   }
-
-// }
