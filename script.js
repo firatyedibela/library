@@ -1,6 +1,8 @@
+// Working on the new branch right now
+
 import { renderDashboard } from './dashboard.js';
 
-
+// ## DUMMY BOOKS ##
 // export const myLibrary = [{
 //   name: 'Dummy Book1',
 //   author: 'Dummy Author1',
@@ -17,16 +19,16 @@ export const myLibrary = [];
 
 renderLibrary();
 
-function Book(name, author, pages, status) {
-  this.name = name;
-  this.pages = pages;
-  this.author = author;
-  this.status = status;
-}
-
-  Book.prototype.toggleRead = function() {
-    this.status = this.status ? false : true;
+class Book {
+  constructor(name, author, pages, status) {
+    this.name = name;
+    this.pages = pages;
+    this.author = author;
+    this.status = status;
   }
+
+  toggleRead = () => this.status = this.status ? false : true;
+}
 
 document.querySelector('.add-book-btn').addEventListener('click', (e) => {
   // Prevent the button from submitting the form and reloading the page
