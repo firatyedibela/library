@@ -19,7 +19,7 @@ function getTotalBooks() {
 }
 
 function getBooksRead() {
-  return myLibrary.filter(book => book.status).length;
+  return myLibrary.filter((book) => book.status).length;
 }
 
 function getBooksUnread() {
@@ -28,7 +28,7 @@ function getBooksUnread() {
 
 function getTotalPages() {
   let pages = 0;
-  myLibrary.forEach(book => {
+  myLibrary.forEach((book) => {
     if (book.status) {
       pages += Number(book.pages);
     }
@@ -38,14 +38,12 @@ function getTotalPages() {
 
 function getTotalAuthors() {
   const authors = [];
-  myLibrary.forEach(book => {
+  myLibrary.forEach((book) => {
     authors.push(book.author.toLowerCase());
   });
   const uniqueAuthors = authors.filter((author, index) => {
     // Keep only the first occurrence of each author in the array
     return authors.indexOf(author) === index;
   });
-  console.log(authors);
-  console.log(uniqueAuthors);
   return uniqueAuthors.length;
 }

@@ -2,20 +2,14 @@
 
 import { renderDashboard } from './dashboard.js';
 
-// ## DUMMY BOOKS ##
-// export const myLibrary = [{
-//   name: 'Dummy Book1',
-//   author: 'Dummy Author1',
-//   pages: 250, 
-//   status: false,
-// }, {
-//   name: 'Dummy Book2',
-//   author: 'Dummy Author2',
-//   pages: 350,
-//   status: true,
-// }];
+export let myLibrary = [];
 
-export const myLibrary = [];
+if (localStorage.getItem('library')) {
+  myLibrary = JSON.parse(localStorage.getItem('library'));
+  myLibrary.forEach((book) => {
+    assignMethods(book);
+  });
+}
 
 renderLibrary();
 
@@ -26,19 +20,24 @@ class Book {
     this.author = author;
     this.status = status;
   }
+}
 
-  toggleRead = () => this.status = this.status ? false : true;
+function toggleRead() {
+  this.status = !this.status;
+}
+
+function assignMethods(book) {
+  book.toggleRead = toggleRead;
 }
 
 document.querySelector('.add-book-btn').addEventListener('click', (e) => {
   // Prevent the button from submitting the form and reloading the page
-  e.preventDefault()
+  e.preventDefault();
 
   addBookToLibrary();
   renderLibrary();
   emptyForm();
 });
-
 
 function addBookToLibrary() {
   // Get book's properties
@@ -49,13 +48,17 @@ function addBookToLibrary() {
 
   // Push new object to myLibrary array
   const book = new Book(name, author, pages, status);
+  assignMethods(book);
   myLibrary.push(book);
+
+  // Update storage
+  localStorage.setItem('library', JSON.stringify(myLibrary));
 }
 
 function renderLibrary() {
   // First empty the table, then recreate table html to avoid duplication
   document.querySelector('#table-body').innerHTML = '';
-  
+
   // Iterate through myLibrary, generate html for each book, add html to #table-body, and then fill that html with data
   myLibrary.forEach((book, index) => {
     // For each book, create the cells and fill the cells with data
@@ -76,12 +79,14 @@ function renderLibrary() {
 
     document.querySelector('#table-body').innerHTML += row;
     // Iterate through all the cells that's just created and give them the current book object's data
-    const cells = Array.from(document.querySelectorAll('#table-body > tr:last-child > td'));
+    const cells = Array.from(
+      document.querySelectorAll('#table-body > tr:last-child > td')
+    );
     cells.forEach((cell) => {
       cell.textContent = book[cell.id];
     });
-    
-    // Add remove button, call removeBook() with current book index 
+
+    // Add remove button, call removeBook() with current book index
     cells[cells.length - 1].innerHTML = `<img 
       class="trash-bin-svg"
       src="./svg/reshot-icon-garbage-F6JTU7P2X4.svg"
@@ -107,21 +112,24 @@ function renderLibrary() {
   // Make trash buttons interactive
   const removeButtons = document.querySelectorAll('.trash-bin-svg');
   removeButtons.forEach((button) => {
-    button.addEventListener('click', event => {
+    button.addEventListener('click', (event) => {
       const bookIndex = button.getAttribute('data-index');
       removeBook(bookIndex);
       renderLibrary();
+      // Update storage
+      localStorage.setItem('library', JSON.stringify(myLibrary));
     });
   });
 
   // Make status buttons interactive
   const statusButtons = document.querySelectorAll('.status-button');
   statusButtons.forEach((button) => {
-    button.addEventListener('click', event => {
+    button.addEventListener('click', (event) => {
       const bookIndex = button.getAttribute('data-index');
-      console.log(myLibrary[bookIndex]);
       myLibrary[bookIndex].toggleRead();
       renderLibrary();
+      // Update storage
+      localStorage.setItem('library', JSON.stringify(myLibrary));
     });
   });
 
