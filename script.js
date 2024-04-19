@@ -33,10 +33,14 @@ function assignMethods(book) {
 document.querySelector('.add-book-btn').addEventListener('click', (e) => {
   // Prevent the button from submitting the form and reloading the page
   e.preventDefault();
-
-  addBookToLibrary();
-  renderLibrary();
-  emptyForm();
+  const form = document.querySelector('#book-form');
+  if (!form.checkValidity()) {
+    form.reportValidity();
+  } else {
+    addBookToLibrary();
+    renderLibrary();
+    emptyForm();
+  }
 });
 
 function addBookToLibrary() {
